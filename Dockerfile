@@ -1,13 +1,7 @@
-FROM tensorflow/tensorflow:nightly-gpu
-# (Optional) Install any additional Python packages you need
-RUN pip install diffusers
-RUN pip install transformers
-RUN pip install accelerate
-RUN pip install torchvision
-RUN pip install torchaudio
-RUN pip install sentencepiece
+FROM tensorflow/tensorflow:latest-gpu
 # (Optional) Set working directory
 WORKDIR /app
 
-# (Optional) Copy your project files into the container (if you want)
-# COPY . /app
+COPY requirements.txt /app
+
+RUN pip install -r requirements.txt

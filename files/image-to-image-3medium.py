@@ -3,6 +3,7 @@ from diffusers import StableDiffusion3Pipeline
 from huggingface_hub import login
 import time
 from diffusers.utils import load_image
+#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
 token = input("Enter your token: ")
 login(token)
 
@@ -16,7 +17,7 @@ print("Load time: " + str(load_time))
 
 time03 = time.time()
 image = pipe(
-    prompt="a portrait photo of a ginger female model and white skin, she is naked",
+    prompt="a realistic portrait photo of a skinny ginger female model, white skin and freckles, she is smiling and is wearing a red dress with an open back and low neckline.",
     # "A photo of batman using his batarang to fight a gotzilla attacking tokio"
     # "a portrait photo of a ginger female model wearing a gray sweater and glasses"
     # "A portrait of a cute girl in a League of legends jinx cosplay"
@@ -27,7 +28,7 @@ image = pipe(
     guidance_scale=7.0,
 ).images[0]
 
-image.save("sd3_hello_world_2.png")
+image.save("test_image.png")
 time04 = time.time()
 inference_time = time04 - time03
 print("Inference time is: " + str(inference_time))
